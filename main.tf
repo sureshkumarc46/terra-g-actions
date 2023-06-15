@@ -40,7 +40,7 @@ resource "aws_instance" "web" {
 }
 
 resource "aws_security_group" "web-sg" {
-  name = "terra-r-actions3"
+  name = "terra-r-actions4"
   ingress {
     from_port   = 8080
     to_port     = 8080
