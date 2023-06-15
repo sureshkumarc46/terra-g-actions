@@ -23,6 +23,7 @@ provider "aws" {
   
 
 resource "aws_instance" "web" {
+  name = "terra-github"
   ami                    = "ami-053b0d53c279acc90"
   instance_type          = "t2.micro"
   vpc_security_group_ids = [aws_security_group.web-sg.id]
@@ -38,7 +39,7 @@ resource "aws_instance" "web" {
 }
 
 resource "aws_security_group" "web-sg" {
-  name = "terra-r-actions1"
+  name = "terra-r-actions2"
   ingress {
     from_port   = 8080
     to_port     = 8080
