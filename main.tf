@@ -23,23 +23,24 @@ provider "aws" {
   
 
 resource "aws_instance" "web" {
-    
+
   ami                    = "ami-053b0d53c279acc90"
   instance_type          = "t2.micro"
   vpc_security_group_ids = [aws_security_group.web-sg.id]
+   user_data_replace_on_change          = true
 
   user_data = <<-EOF
               #!/bin/bash
               apt-get update
               apt-get install -y apache2
               sed -i -e 's/80/8080/' /etc/apache2/ports.conf
-              echo "check terra-actions" > /var/www/html/index.html
+              echo "second check" > /var/www/html/index.html
               systemctl restart apache2
               EOF
 }
 
 resource "aws_security_group" "web-sg" {
-  name = "terra-r-actions2"
+  name = "terra-r-actions3"
   ingress {
     from_port   = 8080
     to_port     = 8080
