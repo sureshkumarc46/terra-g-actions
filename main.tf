@@ -34,13 +34,13 @@ resource "aws_instance" "web" {
               apt-get update
               apt-get install -y apache2
               sed -i -e 's/80/8080/' /etc/apache2/ports.conf
-              echo "second check" > /var/www/html/index.html
+              echo "fifth check" > /var/www/html/index.html
               systemctl restart apache2
               EOF
 }
 
 resource "aws_security_group" "web-sg" {
-  name = "terra-r-actions5"
+  name = "terra-r-actions7"
   ingress {
     from_port   = 8080
     to_port     = 8080
